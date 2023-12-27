@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv')
-const mongoose = require('mongoose');
+
+
 dotenv.config()
 const PORT = process.env.PORT || 5000;
-const uri=`mongodb+srv://${process.env.DBUSER}:${process.env.PASS}@cluster0.iqb3ny3.mongodb.net/?retryWrites=true&w=majority`
 
 
 
@@ -18,12 +18,7 @@ useCreateIndex:true,
 useUnifiedTopology:true
 
 }
-mongoose.connect(uri).then(()=>{
-    console.log('connected to db...')
-}).catch((err)=>{
-    console.error(`Error connecting to the db \n${err}`)
 
-})
 
 
 app.get('/',(req,res)=>{
