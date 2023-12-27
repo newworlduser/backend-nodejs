@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const db = require('./db.config')
 const PORT = process.env.PORT || 5000;
+//controller import
 const userRouter = require('./controller/user.controller')
 
 
