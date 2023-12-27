@@ -17,10 +17,10 @@ app.get('/',(req,res)=>{
 
         status:200,
         message:"your server is up and running ",
-        uri: uri
     })
 
 })
+app.use(/api/v1/users)
 
 app.get('/home',(req,res)=>{
     res.json("this is a home router...")
