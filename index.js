@@ -9,11 +9,9 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 db.dbConfig();
-// const connectionParams={
-// useNewUrlParser:true,
-// useCreateIndex:true,
-// useUnifiedTopology:true
-// }
+
+
+
 app.get('/',(req,res)=>{
     res.json({
 
@@ -24,13 +22,10 @@ app.get('/',(req,res)=>{
 
 })
 
-app.get('home',(req,res)=>{
-    res.json("this is a home router")
-
+app.get('/home',(req,res)=>{
+    res.json("this is a home router...")
 })
 
-
-app.listen(PORT, ()=>{
-console.log(`listening on port number -> ${PORT}`);
-
+app.listen(PORT,()=>{
+    console.log(`listening on port number -> ${PORT}`);
 })
