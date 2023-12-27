@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const db = require('./db.config')
 const PORT = process.env.PORT || 5000;
+const userRouter = require('./controller/user.controller')
 
 
 app.use(express.json());
@@ -20,7 +21,7 @@ app.get('/',(req,res)=>{
     })
 
 })
-app.use(/api/v1/users)
+app.use('/api/v1/users',userRouter)
 
 app.get('/home',(req,res)=>{
     res.json("this is a home router...")
