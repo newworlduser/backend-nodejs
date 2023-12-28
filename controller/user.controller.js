@@ -4,7 +4,7 @@ const User = require("../models/user.model");
 
 router.post("/", (req, res) => {
   const { firstName, lastName, dept, age } = req.body;
-  new User({
+  const user = new User({
     firstName: firstName,
     lastName: lastName,
     dept: dept,
@@ -27,11 +27,15 @@ router.post("/", (req, res) => {
 });
 
 router.get("/", (req, res, next) => {
-  res.json("get all users information");
+  User.find().then(data => res.json({
+    status:200,
+    data: data
+  })).catch(err => res.json({status:500,message: err.message || "some error..."}))
 });
 
 router.get("/:id", (req, res, next) => {
-  res.json("get user information");
+    const id = req.params.id;
+    User.findById(id).then(data => res.json({status:200,data: data})).catch(err => res.json({status:500,message: err.message || "some error..."}))
 });
 
 router.delete("/:id", (req, res, next) => {
