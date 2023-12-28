@@ -3,6 +3,13 @@ const router = express.Router();
 const User=require('../models/user.model')
 
 
+router.post("/",(req,res,next)=>{
+    res.json(req.body)
+res.json('data receiverd...')
+
+})
+
+
 router.get('/',(req,res,next)=>{
     res.json("get all users information")
 })

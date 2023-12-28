@@ -3,12 +3,13 @@ dotenv.config()
 const express = require('express');
 const app = express();
 const db = require('./db.config')
+const bodyParser=require('body-parser')
 const PORT = process.env.PORT || 5000;
 //controller import
 const userRouter = require('./controller/user.controller')
 
-
-app.use(express.json());
+app.use(bodyParser.json());
+// app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 db.dbConfig();
 
