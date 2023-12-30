@@ -1,6 +1,7 @@
 const dotenv = require('dotenv')
 dotenv.config()
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const db = require('./db.config')
 const bodyParser = require('body-parser')
@@ -10,6 +11,7 @@ const userRouter = require('./controller/user.controller')
 const blogRouter = require('./controller/blog.controller')
 const authRouter = require('./controller/auth.controller.')
 
+app.use(cors())
 app.use(bodyParser.json());
 // app.use(express.json()); // middleware...
 app.use(express.urlencoded({extended:true}))
